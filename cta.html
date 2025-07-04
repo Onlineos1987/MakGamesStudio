@@ -1,12 +1,23 @@
-<!-- File: game-download.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    
 
-    <meta http-equiv="refresh" content="0;url=amzn://apps/android?p=com.mak.fill.the.fridge.stack.organize.groceries.cabinet.az" />
-  </head>
-  <body>
-    <p> new testting Redirecting to the game...</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opening Game...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function openAmazonAppstore() {
+      // Try to open Amazon Appstore via URI scheme
+      window.location = "amzn://apps/android?p=com.mak.fill.the.fridge.stack.organize.groceries.cabinet.az";
+
+      // Fallback to Amazon.com URL after 2 seconds
+      setTimeout(function () {
+        window.location = "https://www.amazon.com/gp/mas/dl/android?p=com.mak.fill.the.fridge.stack.organize.groceries.cabinet.az";
+      }, 2000);
+    }
+  </script>
+</head>
+<body onload="openAmazonAppstore()">
+  <p>Opening game in Amazon Appstore...</p>
+</body>
 </html>
