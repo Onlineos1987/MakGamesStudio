@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Wave Position</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #ccc;
+        }
+        
+        .hero {
+            position: relative;
+            min-height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 100px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Fixed wave positioning */
+        .waves-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px; /* Increased height for better visibility */
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat no-repeat;
+            background-position: 0 bottom;
+            transform-origin: center bottom;
+        }
+        
+        .wave1 {
+            background-size: 50% 150px; /* Adjusted to match container height */
+            animation: move-forever1 15s linear infinite;
+            animation-delay: -2s;
+            opacity: 0.7;
+        }
+        
+        .wave2 {
+            background-size: 50% 130px; /* Slightly smaller */
+            animation: move-forever2 12s linear infinite;
+            animation-delay: -2s;
+            opacity: 0.5;
+        }
+        
+        .wave3 {
+            background-size: 50% 100px; /* Smallest wave */
+            animation: move-forever3 9s linear infinite;
+            animation-delay: -2s;
+            opacity: 0.3;
+        }
+        
+        @keyframes move-forever1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25%); }
+        }
+        
+        @keyframes move-forever2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25%); }
+        }
+        
+        @keyframes move-forever3 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25%); }
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .card h2 {
+            color: #ff7e5f;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .explanation {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .explanation h3 {
+            color: #feb47b;
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #1e1e3f;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #ff7e5f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fixed Wave Positioning</h1>
+            <p class="subtitle">The waves are now properly positioned at the bottom of the container</p>
+        </header>
+        
+        <div class="hero">
+            <h2>Hero Section with Waves</h2>
+            <p>This section demonstrates the fixed wave positioning at the bottom.</p>
+            <p>The waves are contained within the hero section and positioned correctly at the bottom.</p>
+            
+            <!-- Fixed wave container -->
+            <div class="waves-container">
+                <div class="waves">
+                    <div class="wave wave1" style="background-image: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 1200 120\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z\' fill=\'%23f86706\' opacity=\'0.7\'/></svg>');"></div>
+                    <div class="wave wave2" style="background-image: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 1200 120\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z\' fill=\'%23f86706\' opacity=\'0.5\'/></svg>');"></div>
+                    <div class="wave wave3" style="background-image: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 1200 120\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z\' fill=\'%23f86706\' opacity=\'0.3\'/></svg>');"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="explanation">
+            <h3>What Was Fixed:</h3>
+            <p>The original wave positioning issues were solved by:</p>
+            <ul>
+                <li>Creating a dedicated container for the waves with absolute positioning</li>
+                <li>Setting proper height for the wave container (150px)</li>
+                <li>Adjusting the background-size to match the container height</li>
+                <li>Ensuring the wave container is positioned at the bottom of its parent</li>
+                <li>Adding overflow: hidden to prevent horizontal scroll</li>
+            </ul>
+            
+            <div class="code-block">
+                /* Key CSS Fixes */<br>
+                .waves-container {<br>
+                &nbsp;&nbsp;position: absolute;<br>
+                &nbsp;&nbsp;bottom: 0;<br>
+                &nbsp;&nbsp;left: 0;<br>
+                &nbsp;&nbsp;width: 100%;<br>
+                &nbsp;&nbsp;height: 150px; /* Fixed height */<br>
+                &nbsp;&nbsp;overflow: hidden;<br>
+                }<br><br>
+                
+                .wave1 {<br>
+                &nbsp;&nbsp;background-size: 50% 150px; /* Matches container height */<br>
+                }<br><br>
+                
+                .wave2 {<br>
+                &nbsp;&nbsp;background-size: 50% 130px;<br>
+                }<br><br>
+                
+                .wave3 {<br>
+                &nbsp;&nbsp;background-size: 50% 100px;<br>
+                }
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="card">
+                <h2>Wave Positioning</h2>
+                <p>The waves are now properly contained at the bottom of the hero section.</p>
+                <p>Each wave has a different size and opacity for a layered effect.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Smooth Animation</h2>
+                <p>The wave animation is smooth and continuous with different speeds for each layer.</p>
+                <p>The waves move horizontally at varying speeds for a natural ocean effect.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Responsive Design</h2>
+                <p>The waves adapt to different screen sizes while maintaining their position.</p>
+                <p>On mobile devices, the waves maintain their aspect ratio and positioning.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Fixed Wave Positioning Solution | Properly aligned at the bottom of the container</p>
+        </footer>
+    </div>
+</body>
+</html>
